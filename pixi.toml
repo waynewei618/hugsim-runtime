@@ -22,8 +22,8 @@ no-build-isolation = ["gsplat", "pytorch3d", "tinycudann", "simple-knn", "xforme
 xformers = { path = "./external/xformers" }
 
 [pypi-dependencies]
-torch = { path = "data/resource/torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl" }
-torchvision = { path = "data/resource/torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl" }
+torch = { path = "torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl" }
+torchvision = { path = "torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl" }
 torchmetrics = ">=1.7.1, <2"
 roma = ">=1.5.2.1, <2"
 matplotlib = ">=3.10.1, <4"

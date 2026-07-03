@@ -41,8 +41,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/setuptools-78.1.0-pyhff2d567_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wheel-0.47.0-pyhd8ed1ab_0.conda
-      - pypi: ./data/resource/torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl
-      - pypi: ./data/resource/torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl
       - pypi: ./external/HUGSIM_splat
       - pypi: ./external/Optical-Flow-Visualization-PyTorch
       - pypi: ./external/UniDepth
@@ -54,6 +52,8 @@ environments:
       - pypi: ./external/tiny-cuda-nn/bindings/torch
       - pypi: ./external/trajdata
       - pypi: ./external/xformers
+      - pypi: ./torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl
+      - pypi: ./torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl
       - pypi: https://pypi.tuna.tsinghua.edu.cn/packages/00/2f/804f58f0b856ab3bf21617cccf5b39206e6c4c94c2cd227bde125ea6105f/parameterized-0.9.0-py2.py3-none-any.whl
       - pypi: https://pypi.tuna.tsinghua.edu.cn/packages/00/3b/0b776f04e364cd99e4cf152c2a9eadb5934c67c9a91429da55169a9447fd/nvidia_cudnn_cu11-9.1.0.70-py3-none-manylinux2014_x86_64.whl
       - pypi: https://pypi.tuna.tsinghua.edu.cn/packages/03/8d/671d81534ea0e2b0e8a121be100020da09eb78861fe3aa8f3ef7dcd3bed1/msgpack-1.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
@@ -781,41 +781,6 @@ packages:
   run_exports: {}
   size: 33491
   timestamp: 1776878563806
-- pypi: ./data/resource/torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl
-  name: torch
-  version: 2.4.1+cu118
-  requires_dist:
-  - filelock
-  - typing-extensions>=4.8.0
-  - sympy
-  - networkx
-  - jinja2
-  - fsspec
-  - nvidia-cuda-nvrtc-cu11==11.8.89 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cuda-runtime-cu11==11.8.89 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cuda-cupti-cu11==11.8.87 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cudnn-cu11==9.1.0.70 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cublas-cu11==11.11.3.6 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cufft-cu11==10.9.0.58 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-curand-cu11==10.3.0.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cusolver-cu11==11.4.1.48 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-cusparse-cu11==11.7.5.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-nccl-cu11==2.20.5 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - nvidia-nvtx-cu11==11.8.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
-  - triton==3.0.0 ; python_full_version < '3.13' and platform_machine == 'x86_64' and sys_platform == 'linux'
-  - opt-einsum>=3.3 ; extra == 'opt-einsum'
-  - optree>=0.11.0 ; extra == 'optree'
-  requires_python: '>=3.8.0'
-- pypi: ./data/resource/torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl
-  name: torchvision
-  version: 0.19.1+cu118
-  requires_dist:
-  - numpy
-  - torch==2.4.1
-  - pillow>=5.3.0,!=8.3.*
-  - gdown>=4.7.3 ; extra == 'gdown'
-  - scipy ; extra == 'scipy'
-  requires_python: '>=3.8'
 - pypi: ./external/HUGSIM_splat
   name: gsplat
   requires_dist:
@@ -959,6 +924,41 @@ packages:
   - torch>=2.4
   - numpy
   requires_python: '>=3.7'
+- pypi: ./torch_whl/torch-2.4.1+cu118-cp311-cp311-linux_x86_64.whl
+  name: torch
+  version: 2.4.1+cu118
+  requires_dist:
+  - filelock
+  - typing-extensions>=4.8.0
+  - sympy
+  - networkx
+  - jinja2
+  - fsspec
+  - nvidia-cuda-nvrtc-cu11==11.8.89 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cuda-runtime-cu11==11.8.89 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cuda-cupti-cu11==11.8.87 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cudnn-cu11==9.1.0.70 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cublas-cu11==11.11.3.6 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cufft-cu11==10.9.0.58 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-curand-cu11==10.3.0.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cusolver-cu11==11.4.1.48 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-cusparse-cu11==11.7.5.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-nccl-cu11==2.20.5 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - nvidia-nvtx-cu11==11.8.86 ; platform_machine == 'x86_64' and sys_platform == 'linux'
+  - triton==3.0.0 ; python_full_version < '3.13' and platform_machine == 'x86_64' and sys_platform == 'linux'
+  - opt-einsum>=3.3 ; extra == 'opt-einsum'
+  - optree>=0.11.0 ; extra == 'optree'
+  requires_python: '>=3.8.0'
+- pypi: ./torch_whl/torchvision-0.19.1+cu118-cp311-cp311-linux_x86_64.whl
+  name: torchvision
+  version: 0.19.1+cu118
+  requires_dist:
+  - numpy
+  - torch==2.4.1
+  - pillow>=5.3.0,!=8.3.*
+  - gdown>=4.7.3 ; extra == 'gdown'
+  - scipy ; extra == 'scipy'
+  requires_python: '>=3.8'
 - pypi: https://pypi.tuna.tsinghua.edu.cn/packages/00/2f/804f58f0b856ab3bf21617cccf5b39206e6c4c94c2cd227bde125ea6105f/parameterized-0.9.0-py2.py3-none-any.whl
   name: parameterized
   version: 0.9.0

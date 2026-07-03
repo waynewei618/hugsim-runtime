@@ -9,10 +9,10 @@ hugsim-runtime/
   pixi.toml
   pixi.lock
   external/
-  data/resource/torch_whl/
+  torch_whl/
 ```
 
-`external/` 下的第三方源码通过 Git submodule 管理。`data/resource/torch_whl/` 保存当前环境固定使用的本地 Torch/Torchvision wheel。
+`external/` 下的第三方源码通过 Git submodule 管理。`torch_whl/` 保存当前环境固定使用的本地 Torch/Torchvision wheel。
 
 ## 初始化与安装
 
@@ -21,6 +21,7 @@ hugsim-runtime/
 ```bash
 cd /workspace/hugsim-runtime
 git submodule update --init --recursive
+./ensure_torch_wheels.sh
 pixi install
 pixi run install-apex
 ```
